@@ -16,7 +16,7 @@ pipeline {
 
         stage('Deploy'){
             steps {
-               sh 'cp -rv build "C:\\Users\\dccpl\\source\\destination"'
+               sh 'cp -r build "C:\\Users\\dccpl\\source\\my-jenkins-app"'
             }
         }
     }
