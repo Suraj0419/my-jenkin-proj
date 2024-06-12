@@ -17,7 +17,7 @@ pipeline {
         stage('Deploy'){
             steps {
                  sh 'npm install -g http-server'
-                 sh 'http-server build -p 50000'
+                 sh 'http-server build -p 3005'
             }
         }
     }
