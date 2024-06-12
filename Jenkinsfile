@@ -16,6 +16,7 @@ pipeline {
 
         stage('Deploy'){
             steps {
+                 sh 'npm install -g serve'
                  sh 'npx serve -s build -l 3000' 
             }
         }
