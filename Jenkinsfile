@@ -16,7 +16,7 @@ pipeline {
 
         stage('Deploy'){
             steps {
-                 sh 'npx serve -s build -l 4200' 
+                 sh 'npx serve -s build -l 3000' 
             }
         }
     }
