@@ -16,7 +16,9 @@ pipeline {
 
         stage('Deploy'){
             steps {
-               sh 'cp -rv build "C:\\Users\\dccpl\\source\\my-jenkins-app"'
+               sh 'npm install -g http-server'
+                // Bind the server to all network interfaces
+                sh 'http-server build -p 3000 -a 0.0.0.0 &'
             }
         }
     }
