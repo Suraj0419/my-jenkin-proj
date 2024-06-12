@@ -16,7 +16,7 @@ pipeline {
 
         stage('Deploy'){
             steps {
-              sh 'docker cp jenkins-workspace:/path/to/build/directory "C:\\Users\\dccpl\\source\\my-jenkins-app"'
+               sh 'cp -r build/* /var/jenkins_home/my-jenkins-app'
             }
         }
     }
