@@ -8,18 +8,6 @@ pipeline {
             }
         }
 
-              stage('Check for Outdated Dependencies') {
-            steps {
-                script {
-                    def outdated = sh(script: 'npm outdated', returnStatus: true)
-                    if (outdated != 0) {
-                        echo "Outdated dependencies found"
-                        sh 'npm update'
-                    }
-                }
-            }
-        }
-
         stage('Build'){
              steps {
                 sh 'npm run build'
