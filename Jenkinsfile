@@ -16,9 +16,7 @@ pipeline {
 
         stage('Deploy'){
             steps {
-               sh 'npm install -g http-server'
-                // Bind the server to all network interfaces
-                sh 'http-server build -p 3000 -a 0.0.0.0 &'
+              sh 'docker cp jenkins-workspace:/path/to/build/directory "C:\\Users\\dccpl\\source\\my-jenkins-app"'
             }
         }
     }
