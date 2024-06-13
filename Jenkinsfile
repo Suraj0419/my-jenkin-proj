@@ -10,11 +10,9 @@ pipeline {
 
         stage('Build'){
              steps {
-                 dir('/usr/src/app') {
-                    sh 'npm install' // Install dependencies
                     sh 'npm run build' // Build the React project
                     sh 'ls -l' // List files to ensure build directory exists
-                }
+                
             }
         }
 
