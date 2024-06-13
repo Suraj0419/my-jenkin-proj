@@ -19,6 +19,8 @@ pipeline {
         stage('Deploy'){
             steps {
                sh 'cp -r build /usr/src/app'
+               sh 'npm install -g serve'
+               sh 'serve -s build'
             }
         }
     }
