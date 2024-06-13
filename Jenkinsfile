@@ -1,6 +1,10 @@
 pipeline {
     agent any
     tools {nodejs "Nodejs"}
+      docker {
+            image 'jenkins/jenkins:latest'
+            args '-p 3000:3000'
+        }
     stages {
         stage('Install Dependecies') { 
             steps {
