@@ -1,10 +1,5 @@
 pipeline {
-    agent {
-        docker {
-            image 'jenkins:latest'
-            args '-p 3000:3000'
-        }
-    }
+    agent any
     tools {nodejs "Nodejs"}
       
     stages {
