@@ -16,11 +16,7 @@ pipeline {
 
         stage('Deploy'){
             steps {
-               powershell '''
-                $source = "build/*"
-                $destination = "C:\\Users\\dccpl\\source\\my-jenkins-app"
-                Copy-Item -Path $source -Destination $destination -Recurse -Force
-                '''
+               sh 'cp -r build/* /usr/src/app/build'
             }
         }
     }
