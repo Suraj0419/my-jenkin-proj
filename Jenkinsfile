@@ -20,7 +20,7 @@ pipeline {
             steps {
                sh 'cp -r build /usr/src/app'
                sh 'npm install -g serve'
-               sh 'serve -s build'
+               sh 'serve -s build &'
             }
         }
     }
