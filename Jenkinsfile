@@ -18,7 +18,7 @@ pipeline {
 
         stage('Deploy'){
             steps {
-               sh 'cp -r build/* /usr/src/app/build'
+               sh 'cp -r build/* /usr/src/app'
             }
         }
     }
