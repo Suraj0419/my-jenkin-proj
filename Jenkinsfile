@@ -3,6 +3,13 @@ pipeline {
     tools {nodejs "Node Js 20"}
       
     stages {
+        
+         stage('Clone the github repo') { 
+            steps {
+                sh "git checkout 'https://github.com/Suraj0419/my-jenkin-proj.git'"
+            }
+        }
+        
         stage('Install Dependecies') { 
             steps {
                 sh 'npm install'
