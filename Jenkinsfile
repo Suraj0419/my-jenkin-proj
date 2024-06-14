@@ -6,7 +6,7 @@ pipeline {
         
          stage('Clone the github repo') { 
             steps {
-                sh "git checkout 'https://github.com/Suraj0419/my-jenkin-proj.git'"
+                git 'https://github.com/Suraj0419/my-jenkin-proj.git'
             }
         }
         
