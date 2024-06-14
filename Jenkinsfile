@@ -20,7 +20,6 @@ pipeline {
         stage('Deploy'){
             steps {
                sh 'cp -r build /usr/src/app'
-               sh 'npm start'
             }
         }
     }
