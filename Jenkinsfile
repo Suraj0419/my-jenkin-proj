@@ -28,10 +28,11 @@ pipeline {
             steps {
                 //sh 'cp -r build /usr/src/app'
                 sh 'npm install -g serve'
+                sh 'npm run dev-build'
                 // Serve the build directory
-                script {
-                    sh ' npm -- start -- --host ${HOST_IP}' // Start server with pm2
-                }
+                /* script {
+                    sh 'npm -- start -- --host ${HOST_IP}' // Start server with pm2
+                } */
             }
         }
     }
