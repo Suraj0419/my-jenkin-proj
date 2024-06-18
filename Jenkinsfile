@@ -26,7 +26,7 @@ pipeline {
 
          stage('Deploy'){
             steps {
-               sh 'cp -r build /usr/src/app'
+               //sh 'cp -r build /usr/src/app'
                 sh 'npm install -g serve'
                 // Serve the build directory
                 sh 'serve -s build -l 3000 &'
