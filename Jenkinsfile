@@ -52,6 +52,7 @@ pipeline {
 
      post {
         success {
+            echo $HOST_IP
             echo 'Build and server startup succeeded!'
             
         }
