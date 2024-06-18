@@ -36,6 +36,8 @@ pipeline {
                     sh "npm run start -- --host \${HOST_IP}"
             }
         } 
+
+         }
        
     }
 }
