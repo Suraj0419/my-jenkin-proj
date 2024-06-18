@@ -1,7 +1,10 @@
 pipeline {
     agent any
     tools {nodejs "Node Js 20"}
-      
+      environment {
+       HOST_IP = sh(script: 'ip route show default | awk \'/default/ {print $3}\'', returnStdout: true).trim()
+
+      }
     stages {
         
          stage('Clone the github repo') { 
@@ -29,7 +32,7 @@ pipeline {
                //sh 'cp -r build /usr/src/app'
                 sh 'npm install -g serve'
                 // Serve the build directory
-                sh 'serve -s build -l 3000 &'
+               sh "npm run start -- --host $HOST_IP"
             }
         } 
        
