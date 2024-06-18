@@ -30,10 +30,8 @@ pipeline {
                 sh 'npm install -g serve'
                 // Serve the build directory
                 script {
-                    sh 'npm install pm2 -g' // Install pm2 globally if not already installed
-                    sh 'pm2 start npm -- start -- --host ${HOST_IP}' // Start server with pm2
-                     sleep time: 20, unit: 'SECONDS' // Wait for server to start (adjust as needed)
-                    sh 'pm2 show 0' // Show pm2 process details for troubleshooting
+                    sh 'npm install forever -g' // Install pm2 globally if not already installed
+                    sh 'forever start npm -- start -- --host ${HOST_IP}' // Start server with pm2
                 }
             }
         }
