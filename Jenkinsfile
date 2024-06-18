@@ -32,7 +32,8 @@ pipeline {
                //sh 'cp -r build /usr/src/app'
                 sh 'npm install -g serve'
                 // Serve the build directory
-               sh "npm run start -- --host $HOST_IP"
+               script {
+                    sh "npm run start -- --host \${HOST_IP}"
             }
         } 
        
