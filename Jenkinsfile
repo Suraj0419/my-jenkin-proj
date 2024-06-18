@@ -33,7 +33,7 @@ pipeline {
                 sh 'npm install -g serve'
                 // Serve the build directory
                script {
-                    sh "npm run start -- --host \${HOST_IP}"
+                    sh "npm run start -- --host \${HOST_IP} &"
             }
         } 
 
