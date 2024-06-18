@@ -42,10 +42,7 @@ pipeline {
         stage('Deploy to Production') {
             steps {
                  sh 'npm run build'
-                  sh 'cp -r build /usr/src/app'
-                  echo HOST_IP
-                
-              
+                  sh 'cp -r build /usr/src/app'     
               // sh 'HOST_IP=${HOST_IP} serve -s build -l tcp://${HOST_IP}:4000'
             }
         }
