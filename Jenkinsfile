@@ -24,11 +24,18 @@ pipeline {
             }
         }
 
-        stage('Deploy') {
+        stage('Deploy to Development') {
             steps {
                 //sh 'cp -r build /usr/src/app'
-                sh 'npm install dotenv-cli'
-               sh 'dotenv -e .env.development react-scripts build'
+               sh 'npm run dev-build'
+            }
+        }
+
+        stage('Deploy to Production') {
+            steps {
+                //sh 'cp -r build /usr/src/app'
+               sh 'npm run build'
+               sh 'HOST_IP=${HOST_IP} serve -s build -l tcp://${HOST_IP}:4000'
             }
         }
     }
