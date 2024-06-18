@@ -43,6 +43,7 @@ pipeline {
             steps {
                  sh 'npm run build'
                   sh 'cp -r build /usr/src/app'
+                  echo "${HOST_IP}"
                 
               
               // sh 'HOST_IP=${HOST_IP} serve -s build -l tcp://${HOST_IP}:4000'
@@ -52,7 +53,7 @@ pipeline {
 
      post {
         success {
-            echo "${HOST_IP}"
+            
             echo 'Build and server startup succeeded!'
             
         }
