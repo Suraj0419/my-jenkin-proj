@@ -30,10 +30,18 @@ pipeline {
                 sh 'npm install -g serve'
                 // Serve the build directory
                 script {
-                    sh 'npm install forever -g' // Install pm2 globally if not already installed
-                    sh 'forever start npm -- start -- --host ${HOST_IP}' // Start server with pm2
+                    sh ' npm -- start -- --host ${HOST_IP}' // Start server with pm2
                 }
             }
+        }
+    }
+
+     post {
+        success {
+            echo 'Build and server startup succeeded!'
+        }
+        failure {
+            echo 'Build or server startup failed.'
         }
     }
 }
