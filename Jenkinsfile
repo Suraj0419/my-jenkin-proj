@@ -5,7 +5,12 @@ pipeline {
         HOST_IP = sh(script: 'ip route show default | awk \'/default/ {print $3}\'', returnStdout: true).trim()
     }
     stages {
-
+       
+       stage('Clean the workspace') {
+            steps {
+                cleanWs()
+            }
+        }
 
         stage('Clone the github repo') {
             steps {
@@ -45,7 +50,7 @@ pipeline {
      post {
         success {
             echo 'Build and server startup succeeded!'
-            cleanWs()
+            
         }
         failure {
             echo 'Build or server startup failed.'
