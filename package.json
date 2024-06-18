@@ -13,7 +13,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "dev-build": "react-scripts build && cp -r build dev-build",
+    "dev-build": "react-scripts build --no-minify && cp -r build dev-build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
