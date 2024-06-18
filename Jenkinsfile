@@ -33,15 +33,17 @@ pipeline {
 
         stage('Deploy to Development') {
             steps {
-                //sh 'cp -r build /usr/src/app'
                sh 'npm run dev-build'
+               sh 'cp -r dev-build /usr/src/app'
+
             }
         }
 
         stage('Deploy to Production') {
             steps {
                  sh 'npm run build'
-                sh 'cp -r build /usr/src/app'
+                  sh 'cp -r build /usr/src/app'
+                
               
               // sh 'HOST_IP=${HOST_IP} serve -s build -l tcp://${HOST_IP}:4000'
             }
