@@ -24,21 +24,21 @@ pipeline {
             }
         }
 
-           stage('Provide Config File') {
+        stage('Deploy to Development') {
+            steps {
+               sh 'npm run dev-build'
+               sh 'cp -r dev-build /usr/src/app'
+
+            }
+        }
+
+         stage('Provide Config File') {
             steps {
                 // Use the config file provided by Config File Provider plugin
                 configFileProvider([configFile(fileId: '451fd959-9819-4f8a-a672-6e47cff6974c', variable: 'CONFIG_FILE_PATH')]) {
                     sh 'cp $CONFIG_FILE_PATH build/config.json'
                     sh 'cp $CONFIG_FILE_PATH /usr/src/app/build/config.json'
                 }
-            }
-        }
-
-        stage('Deploy to Development') {
-            steps {
-               sh 'npm run dev-build'
-               sh 'cp -r dev-build /usr/src/app'
-
             }
         }
 
