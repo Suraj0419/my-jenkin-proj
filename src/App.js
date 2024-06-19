@@ -1,7 +1,7 @@
 import logo from "./logo.svg";
 import "./App.css";
 import { useEffect, useState } from "react";
-import config from './config.js';
+import config from '../config.js';
 
 function App() {
   const [data, setData] = useState([]);
