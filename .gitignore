@@ -25,5 +25,4 @@ yarn-error.log*
 #devlopment build
 /dev-build
 
-# Ignore config.json file
-config.json
+
