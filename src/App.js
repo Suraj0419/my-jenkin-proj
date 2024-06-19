@@ -1,7 +1,7 @@
 import logo from "./logo.svg";
 import "./App.css";
 import { useEffect, useState } from "react";
-import config from "c:/Users/dccpl/source/my-jenkins-app/config";
+import config from "./config";
 
 function App() {
   const [data, setData] = useState([]);
