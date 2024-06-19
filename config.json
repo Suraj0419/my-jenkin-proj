@@ -2,7 +2,7 @@
   "apiUrl": "https://api.example.com",
   "database": {
     "host": "db.example.com",
-    "port": 5432,
+    "port": 5032,
     "username": "suraj8853",
     "password": "suraj1234",
     "databaseName": "surajdb"
