@@ -32,6 +32,14 @@ pipeline {
             }
         }
 
+         stage('Deploy to Production') {
+            steps {
+                 sh 'npm run build'
+                  sh 'cp -r build /usr/src/app'     
+              // sh 'HOST_IP=${HOST_IP} serve -s build -l tcp://${HOST_IP}:4000'
+            }
+        }
+
          stage('Provide Config File') {
             steps {
                 // Use the config file provided by Config File Provider plugin
@@ -42,13 +50,7 @@ pipeline {
             }
         }
 
-        stage('Deploy to Production') {
-            steps {
-                 sh 'npm run build'
-                  sh 'cp -r build /usr/src/app'     
-              // sh 'HOST_IP=${HOST_IP} serve -s build -l tcp://${HOST_IP}:4000'
-            }
-        }
+       
     }
 
      post {
