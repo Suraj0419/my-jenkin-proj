@@ -28,8 +28,8 @@ pipeline {
             steps {
                 // Use the config file provided by Config File Provider plugin
                 configFileProvider([configFile(fileId: '451fd959-9819-4f8a-a672-6e47cff6974c', variable: 'CONFIG_FILE_PATH')]) {
-                    sh 'cp $CONFIG_FILE_PATH config.json'
-                    sh 'cp $CONFIG_FILE_PATH /usr/src/app/config.json'
+                    sh 'cp $CONFIG_FILE_PATH build/config.json'
+                    sh 'cp $CONFIG_FILE_PATH /usr/src/app/build/config.json'
                 }
             }
         }
