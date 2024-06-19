@@ -1,13 +1,13 @@
 import logo from "./logo.svg";
 import "./App.css";
 import { useEffect, useState } from "react";
-import config from '../config.js';
+import config from "c:/Users/dccpl/source/my-jenkins-app/config";
 
 function App() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch(`${config.apiUrl}/users`, {})
+    fetch(`${config.apiUrl}/users`)
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
