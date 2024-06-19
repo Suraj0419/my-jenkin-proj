@@ -24,13 +24,6 @@ pipeline {
             }
         }
 
-        stage('Build') {
-            steps {
-                    sh 'npm run build' // Build the React project
-                    sh 'ls -l' // List files to ensure build directory exists
-            }
-        }
-
         stage('Deploy to Development') {
             steps {
                sh 'npm run dev-build'
