@@ -24,5 +24,7 @@ yarn-error.log*
 
 #devlopment build
 /dev-build
+#ignore
+apiURL.json
 
 
