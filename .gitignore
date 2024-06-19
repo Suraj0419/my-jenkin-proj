@@ -24,3 +24,4 @@ yarn-error.log*
 
 #devlopment build
 /dev-build
+config.json
