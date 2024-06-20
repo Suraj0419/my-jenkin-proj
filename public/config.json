@@ -1,11 +1,4 @@
 {
-  "apiUrl": "https://jsonplaceholder.typicode.com",
-  "database": {
-    "host": "db.example.com",
-    "port": 5032,
-    "username": "suraj8853",
-    "password": "suraj1234",
-    "databaseName": "sur"
-  }
+  
  
 }
