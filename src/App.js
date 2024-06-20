@@ -1,9 +1,8 @@
 
 import "./App.css";
 import { useEffect, useState } from "react";
-import config from "./config.js";
 
-function App() {
+function App({config}) {
   const [data, setData] = useState([]);
 
   useEffect(() => {
