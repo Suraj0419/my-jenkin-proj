@@ -1,13 +1,14 @@
 
 import "./App.css";
 import { useEffect, useState } from "react";
-import config from "./config";
+import config from "./config.js";
 
 function App() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch(`${config.apiUrl}/users`)
+    console.log(config)
+     fetch(`${config.apiUrl}/users`)
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
@@ -16,7 +17,7 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
+    <div>
       <ul>
         {data.map((x) => {
           return <li>{x.name}</li>;
