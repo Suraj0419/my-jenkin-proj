@@ -13,7 +13,7 @@ function App({config}) {
         console.log(data);
         setData(data);
       });
-  }, []);
+  }, [config]);
 
   return (
     <div>
