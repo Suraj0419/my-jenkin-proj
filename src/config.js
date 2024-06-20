@@ -1,3 +1,3 @@
-const config = require('./apiURL.json');
+const config = require('./config.json');
 
 export default config;
