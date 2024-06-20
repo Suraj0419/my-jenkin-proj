@@ -4,5 +4,6 @@ export async function loadConfig() {
       throw new Error('Failed to load configuration');
     }
     const config = await response.json();
+    console.log(config);
     return config;
   }
