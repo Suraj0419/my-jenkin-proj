@@ -4,6 +4,7 @@ pipeline {
     environment {
         HOST_IP = sh(script: 'ip route show default | awk \'/default/ {print $3}\'', returnStdout: true).trim()
         DB_CREDENTIALS=credentials('db-credentials')
+        CONFIG_PATH='public/config.json'
     }
     stages {
        
@@ -43,11 +44,8 @@ pipeline {
 
         stage('Update Config') {
             steps {
-                script {
-                    def configFile = readFile('public/config.json')
-                    def config = new groovy.json.JsonSlurper().parseText(configFile)
-                    config.database.apiConnectionType = 'active'  
-                    writeFile(file: env.CONFIG_FILE, text: groovy.json.JsonOutput.prettyPrint(groovy.json.JsonOutput.toJson(config)))
+                 script {
+                    updateConfigFile(env.CONFIG_PATH, 'active')
                 }
             }
         }
@@ -83,4 +81,17 @@ pipeline {
             echo 'Build or server startup failed.'
         }
     }
+}
+
+@NonCPS
+def updateConfigFile(configFilePath, newValue) {
+    // Read the config file
+    def configFile = new File(configFilePath).text
+    def config = new groovy.json.JsonSlurper().parseText(configFile)
+    
+    // Update the apiConnectionType
+    config.apiConnectionType = newValue
+
+    // Write the updated config back to the file
+    new File(configFilePath).write(groovy.json.JsonOutput.prettyPrint(groovy.json.JsonOutput.toJson(config)))
 }
