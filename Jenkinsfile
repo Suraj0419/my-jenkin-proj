@@ -22,6 +22,7 @@ pipeline {
 
         stage('Install Dependecies') {
             steps {
+                echo "API_CONNECTION_TYPE is ${API_CONNECTION_TYPE}"
                 sh 'npm install'
             }
         }
