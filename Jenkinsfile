@@ -45,7 +45,7 @@ pipeline {
         stage('Update Config') {
             steps {
                  script {
-                    def configFile = readFile env.CONFIG_PATH
+                    def configFile = readFile 'public/config.json'
                     def config = new groovy.json.JsonSlurperClassic().parseText(configFile)
                     
                     // Update the apiConnectionType
