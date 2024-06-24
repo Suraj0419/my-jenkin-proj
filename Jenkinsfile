@@ -63,7 +63,7 @@ pipeline {
                     def configFilePath = "/usr/src/app/public/config.json"
                     def configFile = readFile configFilePath
                     def config = new groovy.json.JsonSlurperClassic().parseText(configFile)
-                    config.apiConnectionType = 'inactive'
+                     config.apiConnectionType = env.API_CONNECTION_TYPE
                     def updatedConfig = groovy.json.JsonOutput.prettyPrint(groovy.json.JsonOutput.toJson(config))
                     writeFile file: configFilePath, text: updatedConfig
                 }
