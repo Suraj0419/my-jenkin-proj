@@ -1,4 +1,11 @@
 {
-  
+  "apiUrl": "https://jsonplaceholder.typicode.com",
+  "database": {
+    "host": "db.example.com",
+    "port": 5032,
+    "username": "${DB_USERNAME}",
+    "password": "${DB_PASSWORD}",
+    "databaseName": "surajdb"
+  }
  
 }
