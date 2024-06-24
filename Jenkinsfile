@@ -65,8 +65,6 @@ pipeline {
         stage('Update Config for local files') {
             steps {
                  script {
-                    def workspaceDir = pwd()
-
                     // Define the full path to the config file
                     def configFilePath = "/usr/src/app/public/config.json"
                     def configFile = readFile configFilePath
