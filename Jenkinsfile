@@ -30,6 +30,7 @@ pipeline {
                 configFileProvider([configFile(fileId: '451fd959-9819-4f8a-a672-6e47cff6974c', variable: 'CONFIG_FILE_PATH')]) {
                     sh 'cp $CONFIG_FILE_PATH public/config.json'
                      sh 'cp $CONFIG_FILE_PATH /usr/src/app/public/config.json'
+                     sh 'ls -la public/'
                       sh '''
                     sed -i "s|\\${DB_USERNAME}|${DB_CREDENTIALS_USR}|g" public/config.json'
                     sed -i "s|\\${DB_PASSWORD}|${DB_CREDENTIALS_PSW}|g" /usr/src/app/public/config.json'

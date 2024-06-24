@@ -3,8 +3,8 @@
   "database": {
     "host": "db.example.com",
     "port": 5032,
-    "username": "suraj8853",
-    "password": "suraj1234",
+    "username": "${DB_USERNAME}",
+    "password": "${DB_PASSWORD}",
     "databaseName": "surajdb"
   }
  
