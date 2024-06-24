@@ -45,7 +45,11 @@ pipeline {
         stage('Update Config') {
             steps {
                  script {
-                    def configFile = readFile 'public/config.json'
+                    def workspaceDir = pwd()
+
+                    // Define the full path to the config file
+                    def configFilePath = "${workspaceDir}/config.json"
+                    def configFile = readFile configFilePath
                     def config = new groovy.json.JsonSlurperClassic().parseText(configFile)
                     
                     // Update the apiConnectionType
@@ -53,7 +57,7 @@ pipeline {
 
                     // Write the updated config back to the file
                     def updatedConfig = groovy.json.JsonOutput.prettyPrint(groovy.json.JsonOutput.toJson(config))
-                    writeFile file: env.CONFIG_FILE, text: updatedConfig
+                    writeFile file: configFilePath, text: updatedConfig
                 }
             }
         }
