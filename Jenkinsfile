@@ -33,7 +33,7 @@ pipeline {
                      sh 'ls -la public/'
                       sh '''
                     sed -i "s|\\${DB_USERNAME}|${DB_CREDENTIALS_USR}|g" public/config.json'
-                    sed -i "s|\\${DB_PASSWORD}|${DB_CREDENTIALS_PSW}|g" /usr/src/app/public/config.json'
+                    sed -i "s|\\${DB_PASSWORD}|${DB_CREDENTIALS_PSW}|g" public/config.json'
                     '''
                 }
             }
