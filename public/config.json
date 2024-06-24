@@ -4,6 +4,7 @@
         "databaseName": "surajdb",
         "port": 5032,
         "host": "db.example.com",
+        "apiConnectionType": "",
         "username": "Ramesh7673"
     },
     "apiUrl": "https://jsonplaceholder.typicode.com",
