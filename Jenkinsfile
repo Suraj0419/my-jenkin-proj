@@ -45,7 +45,15 @@ pipeline {
         stage('Update Config') {
             steps {
                  script {
-                    updateConfigFile(env.CONFIG_PATH, 'active')
+                    def configFile = readFile env.CONFIG_PATH
+                    def config = new groovy.json.JsonSlurperClassic().parseText(configFile)
+                    
+                    // Update the apiConnectionType
+                    config.database.apiConnectionType = 'active'  // Replace 'newValue' with the desired value
+
+                    // Write the updated config back to the file
+                    def updatedConfig = groovy.json.JsonOutput.prettyPrint(groovy.json.JsonOutput.toJson(config))
+                    writeFile file: env.CONFIG_FILE, text: updatedConfig
                 }
             }
         }
@@ -83,15 +91,3 @@ pipeline {
     }
 }
 
-@NonCPS
-def updateConfigFile(configFilePath, newValue) {
-    // Read the config file
-    def configFile = new File(configFilePath).text
-    def config = new groovy.json.JsonSlurper().parseText(configFile)
-    
-    // Update the apiConnectionType
-    config.apiConnectionType = newValue
-
-    // Write the updated config back to the file
-    new File(configFilePath).write(groovy.json.JsonOutput.prettyPrint(groovy.json.JsonOutput.toJson(config)))
-}
