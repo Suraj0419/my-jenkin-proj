@@ -49,7 +49,7 @@ pipeline {
                     def config = new groovy.json.JsonSlurperClassic().parseText(configFile)
                     
                     // Update the apiConnectionType
-                    config.database.apiConnectionType = 'active'  // Replace 'newValue' with the desired value
+                    config.apiConnectionType = 'active'  // Replace 'newValue' with the desired value
 
                     // Write the updated config back to the file
                     def updatedConfig = groovy.json.JsonOutput.prettyPrint(groovy.json.JsonOutput.toJson(config))
