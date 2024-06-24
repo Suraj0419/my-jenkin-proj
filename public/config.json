@@ -1,13 +1,11 @@
 {
-  "apiUrl": "https://jsonplaceholder.typicode.com",
-  "database": {
-    "host": "db.example.com",
-    "port": 5032,
-    "username": "Ramesh7673",
-    "password": "Ramesh@3194",
-    "databaseName": "surajdb"
-    
-  },
-  "apiConnectionType":""
- 
+    "database": {
+        "password": "Ramesh@3194",
+        "databaseName": "surajdb",
+        "port": 5032,
+        "host": "db.example.com",
+        "username": "Ramesh7673"
+    },
+    "apiUrl": "https://jsonplaceholder.typicode.com",
+    "apiConnectionType": "active"
 }
