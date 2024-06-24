@@ -48,7 +48,7 @@ pipeline {
                     def workspaceDir = pwd()
 
                     // Define the full path to the config file
-                    def configFilePath = "${workspaceDir}/config.json"
+                    def configFilePath = "${workspaceDir}/public/config.json"
                     def configFile = readFile configFilePath
                     def config = new groovy.json.JsonSlurperClassic().parseText(configFile)
                     
