@@ -42,13 +42,33 @@ pipeline {
             }
         }
 
-        stage('Update Config') {
+        stage('Update Config for workspace file') {
             steps {
                  script {
                     def workspaceDir = pwd()
 
                     // Define the full path to the config file
                     def configFilePath = "${workspaceDir}/public/config.json"
+                    def configFile = readFile configFilePath
+                    def config = new groovy.json.JsonSlurperClassic().parseText(configFile)
+                    
+                    // Update the apiConnectionType
+                    config.apiConnectionType = 'active'  // Replace 'newValue' with the desired value
+
+                    // Write the updated config back to the file
+                    def updatedConfig = groovy.json.JsonOutput.prettyPrint(groovy.json.JsonOutput.toJson(config))
+                    writeFile file: configFilePath, text: updatedConfig
+                }
+            }
+        }
+
+        stage('Update Config for local files') {
+            steps {
+                 script {
+                    def workspaceDir = pwd()
+
+                    // Define the full path to the config file
+                    def configFilePath = "/usr/src/app/public/config.json"
                     def configFile = readFile configFilePath
                     def config = new groovy.json.JsonSlurperClassic().parseText(configFile)
                     
