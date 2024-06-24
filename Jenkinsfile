@@ -41,6 +41,17 @@ pipeline {
             }
         }
 
+        stage('Update Config') {
+            steps {
+                script {
+                    def configFile = readFile('public/config.json')
+                    def config = new groovy.json.JsonSlurper().parseText(configFile)
+                    config.database.apiConnectionType = 'active'  
+                    writeFile(file: env.CONFIG_FILE, text: groovy.json.JsonOutput.prettyPrint(groovy.json.JsonOutput.toJson(config)))
+                }
+            }
+        }
+
         stage('Deploy to Development') {
             steps {
                sh 'npm run dev-build'
